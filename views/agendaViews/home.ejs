@@ -1,0 +1,58 @@
+<%- include ../layouts/agendaHeader %> 
+    <% if (loggedin) { %>
+ 
+
+        <div class="">
+            <div class="box">
+            <label>To Do</label>
+                <table> 
+                    <thead>
+                        <th>titulo</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <% for( let duty = 0; duty < duties.length; duty++ ) { %>
+                            <tr>
+                                <td><%= duties[duty].title %> </td>
+                                <td><a href="#">Detales</a></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <div class="">
+            <div class="box">
+                <label ><a href="/agenda/memos">Memos</a></label>
+                <table> 
+                    <thead>
+                        <th>titulo</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <% for( let memo = 0; memo < memos.length; memo++ ) { %>
+                            <tr>
+                                <td><%= memos[memo].title %> </td>
+                                <td><a href="#">Detales</a></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                <div>
+                    <!-- /< %= memos[0].id_user %> -->
+                    <form class="form-inline" method="get" action="/agenda/createMemo">
+                        <button class="btn btn-info " type="submit">Crear Nota</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% } else { %>
+        <h1><strong><%= id %> </strong></h1>
+        <a href="logout">Ir al Login</a>
+    <% } %>
+
+<%- include ../layouts/agendaFooter %> 

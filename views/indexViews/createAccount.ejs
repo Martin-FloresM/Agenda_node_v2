@@ -1,0 +1,61 @@
+<%- include ../layouts/indexHeader %> 
+
+
+<div class="box">
+  <div class="logo center">
+    
+    <label class="logo sec" >Create Profile</label>
+  </div>
+    <form action="/createAccount" method="POST" class=".form-control-lg" name="userData">
+        
+        <div class="inputbox">
+          <label class="left" for="">Nombres:</label>
+          <input class="" type="text" name="name" " required>
+        </div>
+        <div class="inputbox"><label class="left" for="">Apellidos:</label>
+          <input class="" type="text" name="lastname" " required>
+        </div>
+        <!-- <div class="inputbox">
+          <label class="left" for="">Usuario:</label>
+          <input class="" type="text" name="user" ">
+        </div> -->
+        <div class="inputbox">
+          <label class="left" for="">Correo:</label>
+          <input class="" type="email" placeholder="123@ejemplo.com" name="email" " required>
+        </div>
+        <div class="inputbox">
+          <label class="left" for="">Contraseña:</label>
+          <input class="form-control" type="password" id="password" name="password"  required>
+        </div>
+        <div class="inputbox">
+          <label class="left" for="">Confirmar contraseña:</label>
+          <input class="form-control" type="password" placeholder="" name="confPassword" id="confPassword"  required>
+        </div>
+        <div>
+          <div class="center">
+            <input type="submit" class="btn btn1 btn-primary" id="btn" value="Crear Cuenta">
+        </div>
+          <a href="">Log in</a>
+        </div>
+          
+      </div>
+      
+    </form>
+  </div>
+
+  <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+  <!-- < % if (typeof alert != "undefined") { %>
+    <script>
+      Swal.fire({
+        title: '< %= alertTitle %>',
+        text: '< %= alertMessage %>',
+        icon: '< %= alertIcon %>',
+        showConfirmButton: '< %= showConfirmButton %>',
+        timer: '< %= timer %>'
+      }).then(()=>{
+        window.location= '< %= ruta %>'
+      })
+    </script>
+  < % } %> -->
+
+<%- include ../layouts/indexFooter %> 

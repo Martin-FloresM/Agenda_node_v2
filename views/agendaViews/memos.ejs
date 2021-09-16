@@ -1,0 +1,37 @@
+<%- include ../layouts/agendaHeader %> 
+<% if (loggedin) { %>
+
+    <div class="">
+        <div class="box">
+        <label>Memos</label>
+            <table> 
+                <thead>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                    <% for( let memo = 0; memo < memos.length; memo++ ) { %>
+                        <tr>
+                            <td><%= memos[memo].title %> </td>
+                            <td><%= memos[memo].description %> </td>
+                            <td><a href="#">Editar</a></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <script>console.log("Memos from template memos",memos)</script>
+<% } else { %>
+<h1><strong><%= id %> </strong></h1>
+<a href="logout">Ir al Login</a>
+<% } %>
+
+<%- include ../layouts/agendaFooter %> 

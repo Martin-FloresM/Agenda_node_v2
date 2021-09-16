@@ -1,0 +1,57 @@
+AA
+
+guardar: function(req, res){
+        // res.send(req.body);
+        var datos = req.body;
+
+
+        
+
+            login.insetar(conexion, req.body, function (err) {
+                
+                    if(!err){
+                        res.redirect('/login');
+                    }else{
+                         //res.redirect('/createAccount');
+                         setTimeout(function(){
+                            window.location.reload();
+                          });
+                        console.log(err)
+                        res.status(err);
+                    }
+                
+           });
+        
+    },
+
+TABLE CREATION SCRIPTS
+
+
+        CREATE TABLE `agenda`.`users` (
+        `id_user` INT(10) NOT NULL,
+        `name` VARCHAR(50) NOT NULL,
+        `lastname` VARCHAR(50) NOT NULL,
+        `email` VARCHAR(100) NULL,
+        `password` VARCHAR(500) NOT NULL,
+        `update_time` VARCHAR(45) NULL,
+        PRIMARY KEY (`id_user`));
+
+
+        CREATE TABLE `agenda`.`memos` (
+        `id_memo` INT(10) NOT NULL,
+        `id_user` INT(10) NOT NULL,
+        `title` VARCHAR(100) NOT NULL,
+        `description` VARCHAR(500) NULL,
+        PRIMARY KEY (`id_memo`),
+        UNIQUE INDEX `id_memo_UNIQUE` (`id_memo` ASC) VISIBLE);
+
+
+
+        CREATE TABLE `agenda`.`duties` (
+        `id_duties` INT(10) NOT NULL,
+        `id_user` INT(10) NOT NULL,
+        `title` VARCHAR(100) NOT NULL,
+        `description` VARCHAR(500) NULL,
+        `state` INT(10) NOT NULL,
+        PRIMARY KEY (`id_duties`),
+        UNIQUE INDEX `id_duties_UNIQUE` (`id_duties` ASC) VISIBLE);
